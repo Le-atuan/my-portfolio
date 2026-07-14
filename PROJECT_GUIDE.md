@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains Le Anh Tuan’s bilingual technical portfolio. It is designed for recruiters and freelance clients, prioritizing fast comprehension, accessible interaction, and strong performance.
+This repository contains Le Anh Tuan’s bilingual portfolio. It uses a premium neo-brutalist editorial direction designed for recruiters and freelance clients, prioritizing fast comprehension, accessible interaction, strong performance, and a memorable visual identity.
 
 ## Technology stack
 
@@ -41,6 +41,7 @@ pnpm build
 - `src/components/header-controls.tsx` — locale, theme, and mobile navigation controls.
 - `public/le-anh-tuan-cv.pdf` — stable downloadable CV asset.
 - `docs/specs/2026-07-14-portfolio-design.md` — approved product and visual design.
+- `design-system/le-anh-tuan-portfolio/MASTER.md` — generated UI/UX Pro Max design-system reference.
 
 ## Sections
 

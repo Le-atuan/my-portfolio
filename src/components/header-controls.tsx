@@ -62,7 +62,16 @@ export function HeaderControls() {
           aria-label={computedColorScheme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
           onClick={() => setColorScheme(computedColorScheme === "dark" ? "light" : "dark")}
         >
-          <span aria-hidden="true">◐</span>
+          {computedColorScheme === "dark" ? (
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+            </svg>
+          ) : (
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path d="M20.4 15.5A8.5 8.5 0 0 1 8.5 3.6 8.5 8.5 0 1 0 20.4 15.5Z" />
+            </svg>
+          )}
         </ActionIcon>
         <Burger opened={opened} onClick={open} aria-label="Open navigation" className={styles.burger} />
       </Group>

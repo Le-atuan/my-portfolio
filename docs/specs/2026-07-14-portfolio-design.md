@@ -2,7 +2,7 @@
 
 ## Direction
 
-The portfolio uses a “Technical Editorial Dossier” direction: strong condensed typography, an ivory/navy/cyan palette, asymmetric composition, visible indexing, and restrained technical diagrams. It avoids generic card grids, decorative gradients, glass effects, and excessive motion.
+The revised portfolio uses a premium neo-brutalist editorial direction: Space Grotesk display typography, DM Sans body copy, a neutral black/white foundation, cobalt-blue accents, asymmetric composition, soft depth, and restrained technical graphics. The visual hierarchy is warmer and more spacious than the original dossier concept while retaining a clear engineering identity. It avoids cheap effects, excessive motion, noisy borders, and repetitive card layouts.
 
 ## Audience and journey
 
