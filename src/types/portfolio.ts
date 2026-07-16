@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type Locale = "en" | "vi";
 
 export type LocalizedText = Record<Locale, string>;
@@ -45,4 +47,9 @@ export interface Contact {
   phone: string;
   displayPhone: string;
   location: LocalizedText;
+}
+
+export interface PortraitConfig {
+  image: StaticImageData | null;
+  alt: LocalizedText;
 }

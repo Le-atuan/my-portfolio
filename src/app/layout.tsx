@@ -1,19 +1,39 @@
-import "@mantine/core/styles.css";
 import "./globals.css";
 
-import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from "@mantine/core";
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
-import { theme } from "@/theme";
+import { Lexend, Source_Sans_3 } from "next/font/google";
 
-const sans = DM_Sans({ subsets: ["latin", "latin-ext"], variable: "--font-sans", display: "swap" });
-const display = Space_Grotesk({ subsets: ["latin", "latin-ext"], variable: "--font-display", display: "swap" });
-const mono = IBM_Plex_Mono({ subsets: ["latin", "vietnamese"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
+const heading = Lexend({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-lexend",
+  display: "swap",
+});
+const body = Source_Sans_3({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const bootstrap = `(() => {
+  try {
+    const root = document.documentElement;
+    const locale = localStorage.getItem('lat-portfolio-locale') === 'vi' ? 'vi' : 'en';
+    const storedTheme = localStorage.getItem('lat-portfolio-theme');
+    const theme = storedTheme === 'light' || storedTheme === 'dark'
+      ? storedTheme
+      : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    root.dataset.locale = locale;
+    root.lang = locale;
+    root.classList.toggle('dark', theme === 'dark');
+    root.dataset.theme = theme;
+  } catch {}
+})();`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://leanhtuan.dev"),
   title: "Le Anh Tuan — Frontend Developer",
-  description: "Frontend developer specializing in React, Next.js, performance, and thoughtful digital experiences.",
+  description:
+    "Frontend developer specializing in React, Next.js, performance, and thoughtful digital experiences.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Le Anh Tuan — Frontend Developer",
@@ -34,22 +54,23 @@ export const viewport: Viewport = {
   initialScale: 1,
   colorScheme: "light dark",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f3efe5" },
-    { media: "(prefers-color-scheme: dark)", color: "#071c2c" },
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-locale="en" {...mantineHtmlProps}>
+    <html
+      lang="en"
+      data-locale="en"
+      suppressHydrationWarning
+      className={`${heading.variable} ${body.variable}`}
+    >
       <head>
-        <ColorSchemeScript defaultColorScheme="auto" />
+        <script dangerouslySetInnerHTML={{ __html: bootstrap }} />
       </head>
-      <body className={`${sans.variable} ${display.variable} ${mono.variable}`}>
-        <MantineProvider theme={theme} defaultColorScheme="auto">
-          {children}
-        </MantineProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

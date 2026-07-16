@@ -95,18 +95,33 @@ export const projects: readonly Project[] = [
 ] as const;
 
 export const skillGroups: readonly SkillGroup[] = [
-  { title: { en: "Interface engineering", vi: "Kỹ thuật giao diện" }, skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"] },
-  { title: { en: "Product delivery", vi: "Phát triển sản phẩm" }, skills: ["Redux", "React Query", "REST APIs", "Responsive Design", "Web Performance"] },
-  { title: { en: "Collaboration", vi: "Cộng tác" }, skills: ["Git", "Figma", "Agile / Scrum", "Jira", "Trello"] },
+  {
+    title: { en: "Interface engineering", vi: "Kỹ thuật giao diện" },
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
+  },
+  {
+    title: { en: "Product delivery", vi: "Phát triển sản phẩm" },
+    skills: ["Redux", "React Query", "REST APIs", "Responsive Design", "Web Performance"],
+  },
+  {
+    title: { en: "Collaboration", vi: "Cộng tác" },
+    skills: ["Git", "Figma", "Agile / Scrum", "Jira", "Trello"],
+  },
 ] as const;
 
 export const credentials: readonly Credential[] = [
   {
     title: { en: "BSc in Information Technology", vi: "Cử nhân Công nghệ Thông tin" },
-    detail: { en: "FPT University · 2020–2024 · GPA 7.19/10", vi: "Đại học FPT · 2020–2024 · GPA 7.19/10" },
+    detail: {
+      en: "FPT University · 2020–2024 · GPA 7.19/10",
+      vi: "Đại học FPT · 2020–2024 · GPA 7.19/10",
+    },
   },
   {
-    title: { en: "User Experience Research and Design", vi: "Nghiên cứu và Thiết kế Trải nghiệm Người dùng" },
+    title: {
+      en: "User Experience Research and Design",
+      vi: "Nghiên cứu và Thiết kế Trải nghiệm Người dùng",
+    },
     detail: { en: "Coursera · November 2023", vi: "Coursera · 11/2023" },
   },
   {
@@ -115,7 +130,10 @@ export const credentials: readonly Credential[] = [
   },
   {
     title: { en: "Technology Team Volunteer", vi: "Tình nguyện viên Đội Công nghệ" },
-    detail: { en: "Vietnam Museum of Ethnology · February 2025", vi: "Bảo tàng Dân tộc học Việt Nam · 02/2025" },
+    detail: {
+      en: "Vietnam Museum of Ethnology · February 2025",
+      vi: "Bảo tàng Dân tộc học Việt Nam · 02/2025",
+    },
   },
 ] as const;
 

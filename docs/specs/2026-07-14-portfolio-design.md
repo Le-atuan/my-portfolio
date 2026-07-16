@@ -1,25 +1,22 @@
-# Le Anh Tuan Portfolio — Approved Design
+# Le Anh Tuan Portfolio — Motion-Driven Redesign
 
-## Direction
+## Direction and audience
 
-The revised portfolio uses a premium neo-brutalist editorial direction: Space Grotesk display typography, DM Sans body copy, a neutral black/white foundation, cobalt-blue accents, asymmetric composition, soft depth, and restrained technical graphics. The visual hierarchy is warmer and more spacious than the original dossier concept while retaining a clear engineering identity. It avoids cheap effects, excessive motion, noisy borders, and repetitive card layouts.
+The portfolio is a project-first landing page for recruiters and freelance clients. It uses an accessible Motion-Driven Portfolio Grid: monochrome neutral surfaces, Cobalt Blue `#2563EB` as the only strong accent, Lexend headings, Source Sans 3 body copy, editorial spacing, technical artwork, and restrained transform/opacity motion.
 
-## Audience and journey
+Visitors encounter selected work immediately after the hero, then philosophy and proof metrics, experience, credentials, and a direct contact conversion panel. Existing professional facts, anchors, URLs, contact links, CV path, metadata, and JSON-LD remain authoritative.
 
-The page serves recruiters and freelance clients. Visitors should understand Le Anh Tuan’s specialty, performance impact, production experience, and contact options within one short scroll. Recruiters can review experience and download the CV; clients can inspect selected work and contact directly.
+## Behavior
 
-## Content and behavior
-
-- One-page bilingual English/Vietnamese experience.
-- Light and dark themes with system preference as the default.
-- Sticky navigation, mobile drawer, section anchors, direct contact actions, and CV download.
-- A deliberate portrait placeholder remains until a new photograph is supplied.
-- The current-company case study is anonymized and uses only facts present in the CV.
-- Footer copyright belongs to Le Anh Tuan and updates its year automatically.
+- English/Vietnamese copy with pre-paint locale initialization and `lat-portfolio-locale` persistence.
+- Light/dark themes sharing one semantic token system; pre-paint initialization uses `lat-portfolio-theme` or the system preference.
+- Floating navigation, skip link, native 44px controls, and a mobile `<dialog>` that closes by button, Escape, backdrop, or navigation selection and restores trigger focus.
+- Project cards reflow from asymmetric desktop grid to a single mobile column.
+- Motion lasts 150–300ms for interaction and uses only transform/opacity; reduced-motion users receive an immediately visible static interface.
+- The portrait placeholder is decorative. A real static import uses a fixed 4:5 frame and responsive `next/image` sizing.
 
 ## Technical boundaries
 
-- Next.js 16 App Router, React, strict TypeScript, pnpm, and Node.js 24.
-- Mantine 9.4.1 provides accessible controls and theme infrastructure; CSS Modules provide the visual system.
-- Page content is server-rendered. Only locale, theme, and mobile navigation controls require client JavaScript.
-- No backend, contact form, CMS, analytics, blog, booking integration, or heavy animation dependency in v1.
+- Next.js 16.2.9 App Router, React 19, strict TypeScript, pnpm 11, Node.js 24+, Tailwind CSS v4, and PostCSS.
+- Server-rendered content; client JavaScript is limited to locale, theme, and mobile navigation controls.
+- No Mantine, CSS Modules, animation/icon library, backend, form, analytics, CMS, blog, or invented professional content.
