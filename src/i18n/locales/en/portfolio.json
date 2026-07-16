@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Le Anh Tuan — Frontend Developer",
+    "description": "Frontend developer specializing in React, Next.js, performance, and thoughtful digital experiences.",
+    "openGraphDescription": "React and Next.js engineer building fast, scalable, and usable digital products."
+  },
+  "accessibility": {
+    "skipToContent": "Skip to content",
+    "home": "Le Anh Tuan — Home",
+    "primaryNavigation": "Primary navigation",
+    "footerNavigation": "Footer navigation",
+    "mobileNavigation": "Mobile navigation",
+    "language": "Language",
+    "openNavigation": "Open navigation",
+    "closeNavigation": "Close navigation",
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme",
+    "backToTop": "Back to top",
+    "contactForm": "Contact form"
+  },
+  "navigation": {
+    "about": "About",
+    "experience": "Experience",
+    "work": "Selected work",
+    "credentials": "Profile",
+    "contact": "Contact"
+  },
+  "common": { "role": "Frontend Developer" },
+  "hero": {
+    "availability": "Available for select opportunities",
+    "title": "Frontend Developer.",
+    "lead": "Building clear, fast, scalable products with React and Next.js.",
+    "explore": "Explore selected work",
+    "downloadCv": "Download CV",
+    "basedInLabel": "Based in",
+    "basedIn": "Ha Noi, Vietnam",
+    "focusLabel": "Focus",
+    "focus": "React · Next.js · Performance",
+    "portraitLabel": "Portrait / 2026",
+    "portraitAlt": "Portrait of Le Anh Tuan",
+    "caption": "Frontend developer · Ha Noi"
+  },
+  "work": {
+    "label": "Selected work",
+    "title": "Proof lives in the work.",
+    "intro": "Production and academic work, focused on the decisions and outcomes that mattered.",
+    "openRepository": "Open repository",
+    "privateCaseStudy": "Private case study",
+    "projects": {
+      "performance": {
+        "eyebrow": "01 / Performance system",
+        "summary": "A production performance initiative for a B2B web application, presented without confidential product details.",
+        "impact": "Combined rendering improvements, code splitting, lazy loading, and responsive component refinements to reduce page-load time by about 10–20%."
+      },
+      "4health": {
+        "eyebrow": "02 / Capstone project",
+        "summary": "A web application for booking and managing clinic services, designed from interface prototype through implementation.",
+        "impact": "Designed responsive flows in Figma, built a PWA with Blazor WebAssembly, and handled foundational SQL operations for a complete booking journey."
+      }
+    }
+  },
+  "about": {
+    "label": "About & approach",
+    "title": "Simple on the surface. Deliberate underneath.",
+    "copy": "I build production interfaces where usability, performance, and maintainability reinforce each other. I am growing toward full-stack engineering to own more of the product journey.",
+    "subheading": "What I bring",
+    "metrics": {
+      "performance": "faster page loads",
+      "toeic": "TOEIC Listening & Reading",
+      "production": "working in production",
+      "b2b": "product experience"
+    },
+    "principles": {
+      "clarity": { "title": "Clarity first", "body": "Reduce friction before adding decoration." },
+      "performance": {
+        "title": "Performance is UX",
+        "body": "Fast experiences earn trust immediately."
+      },
+      "evolve": { "title": "Built to evolve", "body": "Scalable decisions over short-lived fixes." }
+    }
+  },
+  "experience": {
+    "label": "Experience",
+    "title": "Building, learning, shipping.",
+    "intro": "From internship recognition to measurable improvements in production.",
+    "items": {
+      "cvv": {
+        "role": "Front-end Developer",
+        "period": "Oct 2024 — Present",
+        "highlights": [
+          "Improved page-load performance by approximately 10–20% through Next.js rendering optimization, code splitting, and focused UI refinements.",
+          "Integrated RESTful APIs and worked closely with backend engineers to maintain reliable data exchange and system stability.",
+          "Contributed to sprint planning and cross-team delivery in an Agile/Scrum environment using Git, Jira, and Trello."
+        ]
+      },
+      "fpt": {
+        "role": "Java Developer Intern",
+        "period": "Jan 2023 — Apr 2023",
+        "highlights": [
+          "Completed intensive Java Spring Boot training while strengthening HTML, CSS, JavaScript, SQL, and API integration fundamentals.",
+          "Built a full-stack mock application with mentors and teammates; recognized as a Top 3 project and Top 3 individual contributor."
+        ]
+      }
+    }
+  },
+  "credentials": {
+    "label": "Capabilities & credentials",
+    "title": "A practical toolkit for digital products.",
+    "intro": "Technology is the means. A clear, fast, maintainable product is the outcome.",
+    "skills": {
+      "interface": "Interface engineering",
+      "delivery": "Product delivery",
+      "collaboration": "Collaboration"
+    },
+    "items": {
+      "degree": {
+        "title": "BSc in Information Technology",
+        "detail": "FPT University · 2020–2024 · GPA 7.19/10"
+      },
+      "ux": {
+        "title": "User Experience Research and Design",
+        "detail": "Coursera · November 2023"
+      },
+      "webDesign": { "title": "Web Design for Everybody", "detail": "Coursera · March 2022" },
+      "volunteer": {
+        "title": "Technology Team Volunteer",
+        "detail": "Vietnam Museum of Ethnology · February 2025"
+      }
+    }
+  },
+  "contact": {
+    "label": "Start a conversation",
+    "title": "Have a useful product to build?",
+    "phone": "Phone",
+    "location": "Location",
+    "locationValue": "Phuong Liet Ward, Ha Noi, Vietnam",
+    "document": "Document",
+    "downloadCv": "Download CV",
+    "form": {
+      "noticeTitle": "Direct sending is not available yet.",
+      "noticeBody": "Please use the email link in the contact details for now.",
+      "fullName": "Full name",
+      "fullNameHelper": "How should I address you?",
+      "email": "Email",
+      "phone": "Phone number",
+      "reason": "Reason for contacting",
+      "submit": "Direct sending coming soon"
+    }
+  },
+  "footer": { "copyright": "© {{year}} Le Anh Tuan" },
+  "schema": {
+    "jobTitle": "Frontend Developer",
+    "description": "Frontend developer specializing in React, Next.js, performance, and thoughtful digital experiences.",
+    "addressLocality": "Ha Noi"
+  }
+}

@@ -41,6 +41,11 @@
   max-width: 12ch;
   margin-bottom: 1.5rem;
   font-size: clamp(3.5rem, 7vw, 6.75rem);
+  background: linear-gradient(120deg, var(--text) 18%, var(--accent) 62%, var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 .lead {
   max-width: 39rem;
@@ -73,12 +78,13 @@
   transform: translateY(-2px);
 }
 .primary {
-  background: var(--accent);
+  background: var(--accent-gradient);
   border-color: var(--accent) !important;
   color: #fff;
+  box-shadow: var(--accent-shadow);
 }
 .primary:hover {
-  background: var(--accent-hover);
+  filter: brightness(1.06);
 }
 .secondary:hover {
   border-color: var(--text) !important;

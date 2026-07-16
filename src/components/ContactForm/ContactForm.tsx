@@ -1,4 +1,4 @@
-import { LocalizedText } from "@/components/LocalizedText/LocalizedText";
+import { getT } from "next-i18next/server";
 import styles from "./ContactForm.module.css";
 
 const fields = [
@@ -6,40 +6,40 @@ const fields = [
     id: "fullName",
     type: "text",
     autoComplete: "name",
-    label: { en: "Full name", vi: "Họ và tên" },
-    helper: { en: "How should I address you?", vi: "Tôi nên xưng hô với bạn như thế nào?" },
+    inputMode: undefined,
+    helper: true,
   },
-  { id: "email", type: "email", autoComplete: "email", label: { en: "Email", vi: "Email" } },
+  {
+    id: "email",
+    type: "email",
+    autoComplete: "email",
+    inputMode: undefined,
+    helper: false,
+  },
   {
     id: "phone",
     type: "tel",
     autoComplete: "tel",
     inputMode: "tel" as const,
-    label: { en: "Phone number", vi: "Số điện thoại" },
+    helper: false,
   },
-];
+] as const;
 
-export function ContactForm() {
+export async function ContactForm() {
+  const { t } = await getT("portfolio");
+
   return (
     <div className={styles.card}>
       <div className={styles.notice} role="note">
-        <strong>
-          <span data-copy="en">Direct sending is not available yet.</span>
-          <span data-copy="vi">Tính năng gửi trực tiếp chưa khả dụng.</span>
-        </strong>
-        <p>
-          <span data-copy="en">Please use the email link in the contact details for now.</span>
-          <span data-copy="vi">
-            Hiện tại, vui lòng sử dụng liên kết email trong phần thông tin liên hệ.
-          </span>
-        </p>
+        <strong>{t("contact.form.noticeTitle")}</strong>
+        <p>{t("contact.form.noticeBody")}</p>
       </div>
-      <form className={styles.form} aria-label="Contact form">
+      <form className={styles.form} aria-label={t("accessibility.contactForm")}>
         <div className={styles.fields}>
           {fields.map((field) => (
             <div className={styles.field} key={field.id}>
               <label htmlFor={field.id}>
-                <LocalizedText text={field.label} />
+                {t(`contact.form.${field.id}`)}
                 <span aria-hidden="true"> *</span>
               </label>
               <input
@@ -52,24 +52,20 @@ export function ContactForm() {
                 aria-describedby={field.helper ? `${field.id}-help` : undefined}
               />
               {field.helper && (
-                <small id={`${field.id}-help`}>
-                  <LocalizedText text={field.helper} />
-                </small>
+                <small id={`${field.id}-help`}>{t("contact.form.fullNameHelper")}</small>
               )}
             </div>
           ))}
           <div className={`${styles.field} ${styles.reason}`}>
             <label htmlFor="reason">
-              <span data-copy="en">Reason for contacting</span>
-              <span data-copy="vi">Lý do liên hệ</span>
+              {t("contact.form.reason")}
               <span aria-hidden="true"> *</span>
             </label>
             <textarea id="reason" name="reason" required rows={6} />
           </div>
         </div>
         <button type="submit" disabled>
-          <span data-copy="en">Direct sending coming soon</span>
-          <span data-copy="vi">Tính năng gửi trực tiếp sắp có</span>
+          {t("contact.form.submit")}
         </button>
       </form>
     </div>

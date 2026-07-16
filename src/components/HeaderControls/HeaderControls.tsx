@@ -1,17 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useT } from "next-i18next/client";
+import { LuMenu, LuMoon, LuSun, LuX } from "react-icons/lu";
+import type { Locale } from "../../../i18n.config";
 import { navigation } from "@/data/portfolio";
-import type { Locale } from "@/types/portfolio";
 import styles from "./HeaderControls.module.css";
 
-const LOCALE_KEY = "lat-portfolio-locale";
 const THEME_KEY = "lat-portfolio-theme";
-
-function applyLocale(locale: Locale) {
-  document.documentElement.dataset.locale = locale;
-  document.documentElement.lang = locale;
-}
 
 function applyTheme(theme: "light" | "dark") {
   document.documentElement.classList.toggle("dark", theme === "dark");
@@ -19,25 +16,25 @@ function applyTheme(theme: "light" | "dark") {
 }
 
 export function HeaderControls() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const { t, i18n } = useT("portfolio");
+  const locale = (i18n.resolvedLanguage === "vi" ? "vi" : "en") as Locale;
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
-    const initialLocale: Locale = document.documentElement.dataset.locale === "vi" ? "vi" : "en";
     const initialTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
-    const timeout = window.setTimeout(() => {
-      setLocale(initialLocale);
-      setTheme(initialTheme);
-    }, 0);
+    const timeout = window.setTimeout(() => setTheme(initialTheme), 0);
     return () => window.clearTimeout(timeout);
   }, []);
 
   function changeLocale(next: Locale) {
-    setLocale(next);
-    applyLocale(next);
-    localStorage.setItem(LOCALE_KEY, next);
+    const segments = pathname.split("/");
+    segments[1] = next;
+    document.cookie = `i18next=${next}; path=/; max-age=31536000; samesite=lax`;
+    router.push(`${segments.join("/")}${window.location.hash}`);
   }
 
   function toggleTheme() {
@@ -54,11 +51,11 @@ export function HeaderControls() {
   return (
     <div className={styles.controls}>
       <label className={styles.localeLabel}>
-        <span className="sr-only">Language</span>
+        <span className="sr-only">{t("accessibility.language")}</span>
         <select
           value={locale}
           onChange={(event) => changeLocale(event.target.value as Locale)}
-          aria-label={locale === "en" ? "Language" : "Ngôn ngữ"}
+          aria-label={t("accessibility.language")}
         >
           <option value="en">en</option>
           <option value="vi">vi</option>
@@ -68,19 +65,21 @@ export function HeaderControls() {
         className={styles.controlButton}
         type="button"
         onClick={toggleTheme}
-        aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+        aria-label={t(
+          theme === "dark" ? "accessibility.switchToLight" : "accessibility.switchToDark",
+        )}
       >
-        {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+        {theme === "dark" ? <LuSun aria-hidden="true" /> : <LuMoon aria-hidden="true" />}
       </button>
       <button
         ref={triggerRef}
         className={`${styles.controlButton} ${styles.menuTrigger}`}
         type="button"
         onClick={() => dialogRef.current?.showModal()}
-        aria-label="Open navigation"
+        aria-label={t("accessibility.openNavigation")}
         aria-haspopup="dialog"
       >
-        <MenuIcon />
+        <LuMenu aria-hidden="true" />
       </button>
       <dialog
         ref={dialogRef}
@@ -91,18 +90,21 @@ export function HeaderControls() {
         <div className={styles.dialogPanel}>
           <div className={styles.dialogHead}>
             <span>LE ANH TUAN / INDEX</span>
-            <button type="button" onClick={closeMenu} aria-label="Close navigation">
-              <CloseIcon />
+            <button
+              type="button"
+              onClick={closeMenu}
+              aria-label={t("accessibility.closeNavigation")}
+            >
+              <LuX aria-hidden="true" />
             </button>
           </div>
-          <nav aria-label="Mobile navigation">
+          <nav aria-label={t("accessibility.mobileNavigation")}>
             <ol>
               {navigation.map((item, index) => (
                 <li key={item.href}>
                   <a href={item.href} onClick={closeMenu}>
                     <span>{String(index + 1).padStart(2, "0")}</span>
-                    <span data-copy="en">{item.label.en}</span>
-                    <span data-copy="vi">{item.label.vi}</span>
+                    <span>{t(`navigation.${item.id}`)}</span>
                   </a>
                 </li>
               ))}
@@ -111,35 +113,5 @@ export function HeaderControls() {
         </div>
       </dialog>
     </div>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M20.4 15.5A8.5 8.5 0 0 1 8.5 3.6 8.5 8.5 0 1 0 20.4 15.5Z" />
-    </svg>
-  );
-}
-function SunIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-    </svg>
-  );
-}
-function MenuIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M4 7h16M4 12h16M4 17h16" />
-    </svg>
-  );
-}
-function CloseIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
-      <path d="m5 5 14 14M19 5 5 19" />
-    </svg>
   );
 }

@@ -1,34 +1,19 @@
-import { LocalizedText } from "@/components/LocalizedText/LocalizedText";
+import { getT } from "next-i18next/server";
+import { LuArrowUpRight } from "react-icons/lu";
 import { SectionLabel } from "@/components/SectionLabel/SectionLabel";
 import { projects } from "@/data/portfolio";
 import styles from "./WorkSection.module.css";
 
-function ArrowIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 20 20">
-      <path d="M4 10h12M11 5l5 5-5 5" />
-    </svg>
-  );
-}
+export async function WorkSection() {
+  const { t } = await getT("portfolio");
 
-export function WorkSection() {
   return (
-    <section className={`${styles.section} dark-section`} id="work" aria-labelledby="work-title">
+    <section className={styles.section} id="work" aria-labelledby="work-title">
       <div className="shell">
-        <SectionLabel number="01" en="Selected work" vi="Dự án tiêu biểu" />
+        <SectionLabel number="01">{t("work.label")}</SectionLabel>
         <div className={styles.heading}>
-          <h2 id="work-title">
-            <span data-copy="en">Proof lives in the work.</span>
-            <span data-copy="vi">Năng lực thể hiện qua sản phẩm.</span>
-          </h2>
-          <p>
-            <span data-copy="en">
-              Production and academic work, focused on the decisions and outcomes that mattered.
-            </span>
-            <span data-copy="vi">
-              Dự án thực tế và học thuật, tập trung vào quyết định và kết quả quan trọng.
-            </span>
-          </p>
+          <h2 id="work-title">{t("work.title")}</h2>
+          <p>{t("work.intro")}</p>
         </div>
         <div className={styles.grid}>
           {projects.map((project, index) => (
@@ -56,30 +41,25 @@ export function WorkSection() {
                 )}
               </div>
               <div className={styles.content}>
-                <p className={styles.eyebrow}>
-                  <LocalizedText text={project.eyebrow} />
-                </p>
+                <p className={styles.eyebrow}>{t(`work.projects.${project.id}.eyebrow`)}</p>
                 <h3>{project.title}</h3>
-                <p>
-                  <LocalizedText text={project.summary} />
-                </p>
-                <blockquote>
-                  <LocalizedText text={project.impact} />
-                </blockquote>
+                <p>{t(`work.projects.${project.id}.summary`)}</p>
+                <blockquote>{t(`work.projects.${project.id}.impact`)}</blockquote>
                 <ul>
                   {project.technologies.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-                {project.href ? (
-                  <a href={project.href} target="_blank" rel="noreferrer">
-                    <span data-copy="en">Open repository</span>
-                    <span data-copy="vi">Mở repository</span>
-                    <ArrowIcon />
-                  </a>
-                ) : (
-                  <span className={styles.private}>PRIVATE CASE STUDY</span>
-                )}
+                <div className={styles.action}>
+                  {project.href ? (
+                    <a href={project.href} target="_blank" rel="noreferrer">
+                      {t("work.openRepository")}
+                      <LuArrowUpRight aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <span className={styles.private}>{t("work.privateCaseStudy")}</span>
+                  )}
+                </div>
               </div>
             </article>
           ))}

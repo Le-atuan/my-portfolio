@@ -49,10 +49,10 @@
   margin: 0;
   border: 0;
   padding: 0;
-  background: rgb(9 9 11 / 0.55);
+  background: rgb(2 8 23 / 0.64);
 }
 .dialog::backdrop {
-  background: rgb(9 9 11 / 0.55);
+  background: rgb(2 8 23 / 0.64);
 }
 .dialogPanel {
   height: 100%;
@@ -61,6 +61,7 @@
   padding: 1rem 1.5rem;
   background: var(--canvas);
   color: var(--text);
+  box-shadow: -24px 0 60px rgb(2 8 23 / 0.24);
 }
 .dialogHead {
   display: flex;

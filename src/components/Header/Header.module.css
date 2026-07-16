@@ -13,8 +13,8 @@
   padding: 0.5rem 0.65rem 0.5rem 1rem;
   border: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
   border-radius: 1rem;
-  background: color-mix(in srgb, var(--canvas) 88%, transparent);
-  box-shadow: 0 12px 35px rgb(9 9 11 / 0.08);
+  background: color-mix(in srgb, var(--canvas) 86%, transparent);
+  box-shadow: 0 12px 35px rgb(15 42 75 / 0.12);
   backdrop-filter: blur(18px);
   display: flex;
   align-items: center;
@@ -33,8 +33,8 @@
   width: 2.65rem;
   height: 2.65rem;
   border-radius: 0.65rem;
-  background: var(--text);
-  color: var(--canvas);
+  background: var(--accent-gradient);
+  color: #fff;
   font: 700 0.85rem var(--font-heading);
 }
 .brand > span:last-child {

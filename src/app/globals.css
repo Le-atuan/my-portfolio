@@ -2,41 +2,46 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --canvas: #fafafa;
-  --surface: #fff;
-  --surface-soft: #f1f3f5;
-  --text: #09090b;
-  --muted: #52525b;
-  --border: #d4d4d8;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --focus: #2563eb;
-  --inverse: #fafafa;
-  --inverse-surface: #111318;
-  --dark-surface: #18181b;
-  --dark-muted: #b8b8c1;
-  --dark-border: #3f3f46;
-  --ambient-gradient: radial-gradient(circle, rgb(37 99 235 / 0.14), transparent 68%);
-  --shadow: 0 18px 50px rgb(9 9 11 / 0.1);
+  --canvas: #f4f8ff;
+  --surface: #ffffff;
+  --surface-soft: #eaf1fb;
+  --surface-strong: #dce8f7;
+  --text: #07152d;
+  --muted: #52647c;
+  --border: #cbd9ea;
+  --accent: #075de8;
+  --accent-hover: #064cc0;
+  --accent-secondary: #089fc3;
+  --focus: #075de8;
+  --accent-gradient: linear-gradient(135deg, #075de8 0%, #089fc3 100%);
+  --ambient-gradient:
+    radial-gradient(circle at 25% 30%, rgb(7 93 232 / 0.18), transparent 55%),
+    radial-gradient(circle at 72% 68%, rgb(8 159 195 / 0.14), transparent 50%);
+  --shadow: 0 18px 50px rgb(29 78 136 / 0.12);
+  --accent-shadow: 0 16px 36px rgb(7 93 232 / 0.24);
   --radius: 1rem;
   --header: 5.25rem;
-  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark {
-  --canvas: #09090b;
-  --surface: #18181b;
-  --surface-soft: #27272a;
-  --text: #fafafa;
-  --muted: #b8b8c1;
-  --border: #3f3f46;
+  --canvas: #050b18;
+  --surface: #0c1729;
+  --surface-soft: #111f35;
+  --surface-strong: #172a45;
+  --text: #f3f8ff;
+  --muted: #a8bad1;
+  --border: #29405e;
   --accent: #60a5fa;
-  --accent-hover: #93c5fd;
-  --focus: #60a5fa;
-  --inverse: #09090b;
-  --inverse-surface: #fafafa;
-  --ambient-gradient: radial-gradient(circle, rgb(96 165 250 / 0.16), transparent 68%);
-  --shadow: 0 20px 60px rgb(0 0 0 / 0.4);
+  --accent-hover: #8bc7ff;
+  --accent-secondary: #22d3ee;
+  --focus: #67e8f9;
+  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #089fc3 100%);
+  --ambient-gradient:
+    radial-gradient(circle at 22% 28%, rgb(37 99 235 / 0.2), transparent 55%),
+    radial-gradient(circle at 72% 68%, rgb(34 211 238 / 0.12), transparent 48%);
+  --shadow: 0 22px 65px rgb(0 0 0 / 0.42);
+  --accent-shadow: 0 16px 40px rgb(37 99 235 / 0.28);
 }
 
 @theme inline {
@@ -117,27 +122,9 @@ svg {
   outline: 3px solid var(--focus);
   outline-offset: 4px;
 }
-[data-copy="vi"] {
-  display: none;
-}
-html[data-locale="vi"] [data-copy="en"] {
-  display: none;
-}
-html[data-locale="vi"] [data-copy="vi"] {
-  display: initial;
-}
 .shell {
   width: min(100% - 2rem, 76rem);
   margin-inline: auto;
-}
-.dark-section {
-  background: var(--inverse-surface);
-  color: var(--inverse);
-}
-.dark .dark-section {
-  --dark-surface: #fff;
-  --dark-muted: #52525b;
-  --dark-border: #d4d4d8;
 }
 .skip-link {
   position: fixed;

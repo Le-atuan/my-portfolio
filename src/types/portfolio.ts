@@ -1,55 +1,43 @@
 import type { StaticImageData } from "next/image";
 
-export type Locale = "en" | "vi";
-
-export type LocalizedText = Record<Locale, string>;
-
 export interface NavigationItem {
+  id: "about" | "experience" | "work" | "credentials" | "contact";
   href: `#${string}`;
-  label: LocalizedText;
 }
 
 export interface Metric {
+  id: "performance" | "toeic" | "production" | "b2b";
   value: string;
-  label: LocalizedText;
 }
 
 export interface Experience {
-  id: string;
-  role: LocalizedText;
+  id: "cvv" | "fpt";
   company: string;
-  period: LocalizedText;
-  highlights: LocalizedText[];
+  highlightCount: number;
 }
 
 export interface Project {
-  id: string;
-  eyebrow: LocalizedText;
+  id: "performance" | "4health";
   title: string;
-  summary: LocalizedText;
-  impact: LocalizedText;
   technologies: readonly string[];
   href?: string;
 }
 
 export interface SkillGroup {
-  title: LocalizedText;
+  id: "interface" | "delivery" | "collaboration";
   skills: readonly string[];
 }
 
 export interface Credential {
-  title: LocalizedText;
-  detail: LocalizedText;
+  id: "degree" | "ux" | "webDesign" | "volunteer";
 }
 
 export interface Contact {
   email: string;
   phone: string;
   displayPhone: string;
-  location: LocalizedText;
 }
 
 export interface PortraitConfig {
   image: StaticImageData | null;
-  alt: LocalizedText;
 }

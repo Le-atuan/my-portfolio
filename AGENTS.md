@@ -1,3 +1,19 @@
+## Plan Approval and Execution Rules
+
+- If an approved plan includes an explicit file allowlist, agents and subagents may edit any file in that allowlist without asking for additional permission.
+- A plan is considered approved when the user explicitly approves it or instructs the agent to implement it.
+- Approval does not extend beyond the plan's file allowlist. Ask for permission before editing any file outside the allowlist.
+- Do not run a production build or start a development server by default.
+- If running a build or development server is necessary, first explain the specific reasons in Vietnamese and wait for the user's explicit permission.
+
+## Node.js Runtime
+
+- Before running any Node.js-related command, agents and subagents must load NVM and switch to Node.js 24 in the same shell session:
+  `export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm use 24`.
+- This applies to commands such as `node`, `npm`, `npx`, `pnpm`, `yarn`, framework CLIs, tests, linters, formatters, GitNexus, builds, and development servers.
+- Do not rely on the shell's default Node.js version. Verify with `node --version` after switching when beginning a coding or verification task.
+- If Node.js 24 is unavailable through NVM, stop and report the blocker instead of installing another version or continuing with a different Node.js version.
+
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 

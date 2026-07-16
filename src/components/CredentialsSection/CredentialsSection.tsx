@@ -1,37 +1,27 @@
-import { LocalizedText } from "@/components/LocalizedText/LocalizedText";
+import { getT } from "next-i18next/server";
 import { SectionLabel } from "@/components/SectionLabel/SectionLabel";
 import { credentials, skillGroups } from "@/data/portfolio";
 import styles from "./CredentialsSection.module.css";
 
-export function CredentialsSection() {
+export async function CredentialsSection() {
+  const { t } = await getT("portfolio");
+
   return (
     <section
       className={`${styles.section} shell`}
       id="credentials"
       aria-labelledby="credentials-title"
     >
-      <SectionLabel number="04" en="Capabilities & credentials" vi="Năng lực & hồ sơ" />
+      <SectionLabel number="04">{t("credentials.label")}</SectionLabel>
       <div className={styles.heading}>
-        <h2 id="credentials-title">
-          <span data-copy="en">A practical toolkit for digital products.</span>
-          <span data-copy="vi">Bộ công cụ thực tế cho sản phẩm số.</span>
-        </h2>
-        <p>
-          <span data-copy="en">
-            Technology is the means. A clear, fast, maintainable product is the outcome.
-          </span>
-          <span data-copy="vi">
-            Công nghệ là phương tiện. Sản phẩm rõ ràng, nhanh và dễ bảo trì là kết quả.
-          </span>
-        </p>
+        <h2 id="credentials-title">{t("credentials.title")}</h2>
+        <p>{t("credentials.intro")}</p>
       </div>
       <div className={styles.skills}>
         {skillGroups.map((group, index) => (
-          <article key={group.title.en}>
+          <article key={group.id}>
             <span>0{index + 1}</span>
-            <h3>
-              <LocalizedText text={group.title} />
-            </h3>
+            <h3>{t(`credentials.skills.${group.id}`)}</h3>
             <ul>
               {group.skills.map((skill) => (
                 <li key={skill}>{skill}</li>
@@ -42,13 +32,9 @@ export function CredentialsSection() {
       </div>
       <div className={styles.list}>
         {credentials.map((item) => (
-          <article key={item.title.en}>
-            <h3>
-              <LocalizedText text={item.title} />
-            </h3>
-            <p>
-              <LocalizedText text={item.detail} />
-            </p>
+          <article key={item.id}>
+            <h3>{t(`credentials.items.${item.id}.title`)}</h3>
+            <p>{t(`credentials.items.${item.id}.detail`)}</p>
           </article>
         ))}
       </div>

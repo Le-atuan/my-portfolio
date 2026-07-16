@@ -1,6 +1,7 @@
 .section {
   padding-block: 6rem;
   background: var(--surface-soft);
+  border-block: 1px solid var(--border);
 }
 .grid {
   display: grid;

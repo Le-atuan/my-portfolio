@@ -1,49 +1,38 @@
+import { getT } from "next-i18next/server";
+import { LuArrowRight, LuDownload } from "react-icons/lu";
 import { ContactForm } from "@/components/ContactForm/ContactForm";
-import { LocalizedText } from "@/components/LocalizedText/LocalizedText";
 import { SectionLabel } from "@/components/SectionLabel/SectionLabel";
 import { contact } from "@/data/portfolio";
 import styles from "./ContactSection.module.css";
 
-function ArrowIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 20 20">
-      <path d="M4 10h12M11 5l5 5-5 5" />
-    </svg>
-  );
-}
+export async function ContactSection() {
+  const { t } = await getT("portfolio");
 
-export function ContactSection() {
   return (
-    <section
-      className={`${styles.section} dark-section`}
-      id="contact"
-      aria-labelledby="contact-title"
-    >
+    <section className={styles.section} id="contact" aria-labelledby="contact-title">
       <div className="shell">
-        <SectionLabel number="05" en="Start a conversation" vi="Bắt đầu trao đổi" />
+        <SectionLabel number="05">{t("contact.label")}</SectionLabel>
         <div className={styles.grid}>
           <div className={styles.details}>
-            <h2 id="contact-title">
-              <span data-copy="en">Have a useful product to build?</span>
-              <span data-copy="vi">Bạn có một sản phẩm hữu ích cần xây dựng?</span>
-            </h2>
+            <h2 id="contact-title">{t("contact.title")}</h2>
             <a className={styles.email} href={`mailto:${contact.email}`}>
               {contact.email}
-              <ArrowIcon />
+              <LuArrowRight aria-hidden="true" />
             </a>
             <address>
               <a href={`tel:${contact.phone}`}>
-                <small>PHONE</small>
+                <small>{t("contact.phone")}</small>
                 {contact.displayPhone}
               </a>
               <div>
-                <small>LOCATION</small>
-                <LocalizedText text={contact.location} />
+                <small>{t("contact.location")}</small>
+                {t("contact.locationValue")}
               </div>
               <a href="/le-anh-tuan-cv.pdf" download>
-                <small>DOCUMENT</small>
-                <span data-copy="en">Download CV</span>
-                <span data-copy="vi">Tải CV</span>
+                <small>{t("contact.document")}</small>
+                <span>
+                  {t("contact.downloadCv")} <LuDownload aria-hidden="true" />
+                </span>
               </a>
             </address>
           </div>

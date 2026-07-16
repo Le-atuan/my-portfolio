@@ -1,50 +1,42 @@
-import { LocalizedText } from "@/components/LocalizedText/LocalizedText";
+import { getT } from "next-i18next/server";
 import { SectionLabel } from "@/components/SectionLabel/SectionLabel";
 import { experiences } from "@/data/portfolio";
 import styles from "./ExperienceSection.module.css";
 
-export function ExperienceSection() {
+export async function ExperienceSection() {
+  const { t } = await getT("portfolio");
+
   return (
     <section className={styles.section} id="experience" aria-labelledby="experience-title">
       <div className="shell">
-        <SectionLabel number="03" en="Experience" vi="Kinh nghiệm" />
+        <SectionLabel number="03">{t("experience.label")}</SectionLabel>
         <div className={styles.grid}>
           <div className={styles.sticky}>
-            <h2 id="experience-title">
-              <span data-copy="en">Building, learning, shipping.</span>
-              <span data-copy="vi">Xây dựng, học hỏi, triển khai.</span>
-            </h2>
-            <p>
-              <span data-copy="en">
-                From internship recognition to measurable improvements in production.
-              </span>
-              <span data-copy="vi">
-                Từ thành tích thực tập đến cải tiến đo lường được trong sản phẩm thực tế.
-              </span>
-            </p>
+            <h2 id="experience-title">{t("experience.title")}</h2>
+            <p>{t("experience.intro")}</p>
           </div>
           <div className={styles.timeline}>
-            {experiences.map((item, index) => (
-              <article key={item.id}>
-                <div>
-                  <span>0{index + 1}</span>
-                  <time>
-                    <LocalizedText text={item.period} />
-                  </time>
-                </div>
-                <h3>
-                  <LocalizedText text={item.role} />
-                </h3>
-                <p className={styles.company}>{item.company}</p>
-                <ul>
-                  {item.highlights.map((highlight) => (
-                    <li key={highlight.en}>
-                      <LocalizedText text={highlight} />
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+            {experiences.map((item, index) => {
+              const highlights = t(`experience.items.${item.id}.highlights`, {
+                returnObjects: true,
+              }) as string[];
+
+              return (
+                <article key={item.id}>
+                  <div>
+                    <span>0{index + 1}</span>
+                    <time>{t(`experience.items.${item.id}.period`)}</time>
+                  </div>
+                  <h3>{t(`experience.items.${item.id}.role`)}</h3>
+                  <p className={styles.company}>{item.company}</p>
+                  <ul>
+                    {highlights.slice(0, item.highlightCount).map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>

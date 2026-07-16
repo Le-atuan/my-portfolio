@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "title": "Lê Anh Tuấn — Lập trình viên Frontend",
+    "description": "Lập trình viên Frontend chuyên về React, Next.js, hiệu năng và trải nghiệm số chỉn chu.",
+    "openGraphDescription": "Kỹ sư React và Next.js xây dựng sản phẩm nhanh, dễ mở rộng và dễ sử dụng."
+  },
+  "accessibility": {
+    "skipToContent": "Đi đến nội dung chính",
+    "home": "Lê Anh Tuấn — Trang chủ",
+    "primaryNavigation": "Điều hướng chính",
+    "footerNavigation": "Điều hướng chân trang",
+    "mobileNavigation": "Điều hướng di động",
+    "language": "Ngôn ngữ",
+    "openNavigation": "Mở điều hướng",
+    "closeNavigation": "Đóng điều hướng",
+    "switchToLight": "Chuyển sang giao diện sáng",
+    "switchToDark": "Chuyển sang giao diện tối",
+    "backToTop": "Về đầu trang",
+    "contactForm": "Biểu mẫu liên hệ"
+  },
+  "navigation": {
+    "about": "Giới thiệu",
+    "experience": "Kinh nghiệm",
+    "work": "Dự án",
+    "credentials": "Hồ sơ",
+    "contact": "Liên hệ"
+  },
+  "common": { "role": "Lập trình viên Frontend" },
+  "hero": {
+    "availability": "Sẵn sàng cho cơ hội phù hợp",
+    "title": "Lập trình viên Frontend.",
+    "lead": "Xây dựng sản phẩm rõ ràng, nhanh và dễ mở rộng với React và Next.js.",
+    "explore": "Xem dự án tiêu biểu",
+    "downloadCv": "Tải CV",
+    "basedInLabel": "Địa điểm",
+    "basedIn": "Hà Nội, Việt Nam",
+    "focusLabel": "Trọng tâm",
+    "focus": "React · Next.js · Hiệu năng",
+    "portraitLabel": "Chân dung / 2026",
+    "portraitAlt": "Chân dung Lê Anh Tuấn",
+    "caption": "Lập trình viên Frontend · Hà Nội"
+  },
+  "work": {
+    "label": "Dự án tiêu biểu",
+    "title": "Năng lực thể hiện qua sản phẩm.",
+    "intro": "Dự án thực tế và học thuật, tập trung vào quyết định và kết quả quan trọng.",
+    "openRepository": "Mở repository",
+    "privateCaseStudy": "Case study nội bộ",
+    "projects": {
+      "performance": {
+        "eyebrow": "01 / Hệ thống hiệu năng",
+        "summary": "Sáng kiến tối ưu hiệu năng cho ứng dụng web B2B thực tế, được trình bày không kèm thông tin sản phẩm nội bộ.",
+        "impact": "Kết hợp tối ưu render, code splitting, lazy loading và cải tiến component responsive để giảm khoảng 10–20% thời gian tải trang."
+      },
+      "4health": {
+        "eyebrow": "02 / Đồ án tốt nghiệp",
+        "summary": "Ứng dụng web đặt lịch và quản lý dịch vụ phòng khám, được phát triển từ prototype giao diện đến triển khai.",
+        "impact": "Thiết kế luồng responsive trên Figma, xây dựng PWA bằng Blazor WebAssembly và xử lý các thao tác SQL nền tảng cho hành trình đặt lịch hoàn chỉnh."
+      }
+    }
+  },
+  "about": {
+    "label": "Giới thiệu & cách làm",
+    "title": "Đơn giản ở bề mặt. Có chủ đích ở bên trong.",
+    "copy": "Tôi xây dựng giao diện thực tế nơi tính dễ dùng, hiệu năng và khả năng bảo trì hỗ trợ lẫn nhau. Tôi đang phát triển theo hướng Fullstack để làm chủ nhiều hơn hành trình sản phẩm.",
+    "subheading": "Giá trị tôi mang lại",
+    "metrics": {
+      "performance": "cải thiện tốc độ tải",
+      "toeic": "TOEIC Nghe & Đọc",
+      "production": "bắt đầu làm sản phẩm thực tế",
+      "b2b": "kinh nghiệm sản phẩm"
+    },
+    "principles": {
+      "clarity": { "title": "Rõ ràng trước tiên", "body": "Giảm ma sát trước khi thêm trang trí." },
+      "performance": {
+        "title": "Hiệu năng là UX",
+        "body": "Trải nghiệm nhanh tạo niềm tin tức thì."
+      },
+      "evolve": {
+        "title": "Sẵn sàng phát triển",
+        "body": "Quyết định bền vững hơn bản vá ngắn hạn."
+      }
+    }
+  },
+  "experience": {
+    "label": "Kinh nghiệm",
+    "title": "Xây dựng, học hỏi, triển khai.",
+    "intro": "Từ thành tích thực tập đến cải tiến đo lường được trong sản phẩm thực tế.",
+    "items": {
+      "cvv": {
+        "role": "Lập trình viên Front-end",
+        "period": "10/2024 — Hiện tại",
+        "highlights": [
+          "Cải thiện khoảng 10–20% tốc độ tải trang qua tối ưu render Next.js, code splitting và tinh chỉnh UI có trọng tâm.",
+          "Tích hợp RESTful API và phối hợp cùng đội backend để duy trì luồng dữ liệu ổn định, nhất quán.",
+          "Tham gia lập kế hoạch sprint và phối hợp liên nhóm trong môi trường Agile/Scrum với Git, Jira và Trello."
+        ]
+      },
+      "fpt": {
+        "role": "Thực tập sinh Java",
+        "period": "01/2023 — 04/2023",
+        "highlights": [
+          "Hoàn thành chương trình đào tạo Java Spring Boot chuyên sâu, đồng thời củng cố HTML, CSS, JavaScript, SQL và tích hợp API.",
+          "Xây dựng ứng dụng full-stack cùng mentor và đồng đội; đạt Top 3 dự án và Top 3 cá nhân xuất sắc trong kỳ thực tập."
+        ]
+      }
+    }
+  },
+  "credentials": {
+    "label": "Năng lực & hồ sơ",
+    "title": "Bộ công cụ thực tế cho sản phẩm số.",
+    "intro": "Công nghệ là phương tiện. Sản phẩm rõ ràng, nhanh và dễ bảo trì là kết quả.",
+    "skills": {
+      "interface": "Kỹ thuật giao diện",
+      "delivery": "Phát triển sản phẩm",
+      "collaboration": "Cộng tác"
+    },
+    "items": {
+      "degree": {
+        "title": "Cử nhân Công nghệ Thông tin",
+        "detail": "Đại học FPT · 2020–2024 · GPA 7.19/10"
+      },
+      "ux": {
+        "title": "Nghiên cứu và Thiết kế Trải nghiệm Người dùng",
+        "detail": "Coursera · 11/2023"
+      },
+      "webDesign": { "title": "Web Design for Everybody", "detail": "Coursera · 03/2022" },
+      "volunteer": {
+        "title": "Tình nguyện viên Đội Công nghệ",
+        "detail": "Bảo tàng Dân tộc học Việt Nam · 02/2025"
+      }
+    }
+  },
+  "contact": {
+    "label": "Bắt đầu trao đổi",
+    "title": "Bạn có một sản phẩm hữu ích cần xây dựng?",
+    "phone": "Điện thoại",
+    "location": "Địa điểm",
+    "locationValue": "Phường Phương Liệt, Hà Nội, Việt Nam",
+    "document": "Tài liệu",
+    "downloadCv": "Tải CV",
+    "form": {
+      "noticeTitle": "Tính năng gửi trực tiếp chưa khả dụng.",
+      "noticeBody": "Hiện tại, vui lòng sử dụng liên kết email trong phần thông tin liên hệ.",
+      "fullName": "Họ và tên",
+      "fullNameHelper": "Tôi nên xưng hô với bạn như thế nào?",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "reason": "Lý do liên hệ",
+      "submit": "Tính năng gửi trực tiếp sắp có"
+    }
+  },
+  "footer": { "copyright": "© {{year}} Lê Anh Tuấn" },
+  "schema": {
+    "jobTitle": "Lập trình viên Frontend",
+    "description": "Lập trình viên Frontend chuyên về React, Next.js, hiệu năng và trải nghiệm số chỉn chu.",
+    "addressLocality": "Hà Nội"
+  }
+}
