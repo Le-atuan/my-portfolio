@@ -1,0 +1,97 @@
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.localeLabel {
+  position: relative;
+}
+.localeLabel select,
+.controlButton,
+.dialogHead button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 0;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background 200ms,
+    color 200ms;
+}
+.localeLabel select {
+  appearance: none;
+  padding: 0 0.75rem;
+  font: 700 0.75rem var(--font-heading);
+  text-transform: lowercase;
+  text-align: center;
+}
+.localeLabel select:hover,
+.controlButton:hover,
+.dialogHead button:hover {
+  background: var(--surface-soft);
+  color: var(--accent);
+}
+.controlButton,
+.dialogHead button {
+  display: grid;
+  place-items: center;
+}
+.menuTrigger {
+  display: none;
+}
+.dialog {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: rgb(9 9 11 / 0.55);
+}
+.dialog::backdrop {
+  background: rgb(9 9 11 / 0.55);
+}
+.dialogPanel {
+  height: 100%;
+  margin-left: auto;
+  width: min(100%, 30rem);
+  padding: 1rem 1.5rem;
+  background: var(--canvas);
+  color: var(--text);
+}
+.dialogHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: 600 0.75rem var(--font-heading);
+}
+.dialog ol {
+  list-style: none;
+  margin: 4rem 0 0;
+  padding: 0;
+}
+.dialog li {
+  border-top: 1px solid var(--border);
+}
+.dialog li:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.dialog a {
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font: 600 clamp(1.35rem, 7vw, 2.25rem) var(--font-heading);
+}
+.dialog a > span:first-child {
+  font: 500 0.7rem var(--font-body);
+  color: var(--muted);
+}
+@media (max-width: 900px) {
+  .menuTrigger {
+    display: grid;
+  }
+}

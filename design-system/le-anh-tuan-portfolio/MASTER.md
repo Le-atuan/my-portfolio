@@ -6,7 +6,7 @@
 
 - Pattern: Motion-Driven Portfolio Grid; project-first, visual storytelling, asymmetric desktop composition.
 - Audience: recruiters and freelance clients.
-- Style: precise, editorial, technical, confident; no glassmorphism, neo-brutalism, gradients-as-decoration, or noisy card repetition.
+- Style: precise, editorial, technical, confident; no glassmorphism, neo-brutalism, or noisy card repetition. Ambient gradients may be used only as restrained, token-driven depth.
 - Variance 8/10, motion 5/10, density 4/10.
 
 ## Tokens
@@ -21,6 +21,8 @@
 | Border         | `#D4D4D8` | `#3F3F46` |
 | Accent / focus | `#2563EB` | `#60A5FA` |
 
+- Ambient gradient: a low-opacity radial accent wash, mapped separately for light and dark themes; never used behind body copy at a contrast cost.
+
 - Heading: Lexend, 600–700, tight tracking.
 - Body: Source Sans 3, 400–600, 1.5–1.7 line height.
 - Spacing: 4/8px rhythm; adaptive gutters; maximum content width 76rem.
@@ -34,7 +36,24 @@
 4. About, current direction, proof metrics, and three practical principles.
 5. Experience timeline.
 6. Skills, education, certificates, and volunteer activity.
-7. Contact panel and compact footer.
+7. Two-column contact section: contact details first, then a distinct form surface; collapse to that same reading order on mobile.
+8. Two-tier editorial footer: brand/navigation above, copyright/availability/back-to-top below.
+
+## Component architecture
+
+- Page composition lives in `src/app/page.tsx`; section implementation and styling are colocated in `src/components/<Component>/`.
+- Primary sections: Header, Hero, Work, About, Experience, Credentials, Contact, and Footer.
+- Shared primitives: HeaderControls, ContactForm, SectionLabel, and LocalizedText.
+- Small cards and timeline items remain private to the section that owns them.
+- Global CSS is limited to reset, semantic tokens, locale visibility, shared shell/dark-section hooks, and accessibility defaults.
+
+## Contact form
+
+- Two-column desktop layout with details before the form in DOM and mobile order.
+- Every required field has a visible bilingual label, native semantic type, name, autocomplete, and a minimum 44px input target.
+- Fields: full name, email, phone, and contact reason. The textarea is vertically resizable and sized for a meaningful message.
+- Direct sending is intentionally unavailable. Explain this before the form and direct users to the email link.
+- The submit control uses the native `disabled` attribute, reduced emphasis, and a not-allowed cursor. Do not attach an action, submit handler, network request, logging, persistence, or success simulation.
 
 ## Interaction and accessibility
 

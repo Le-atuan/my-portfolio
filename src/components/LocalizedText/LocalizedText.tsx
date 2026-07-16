@@ -1,10 +1,6 @@
 import type { LocalizedText as LocalizedTextValue } from "@/types/portfolio";
 
-interface LocalizedTextProps {
-  text: LocalizedTextValue;
-}
-
-export function LocalizedText({ text }: LocalizedTextProps) {
+export function LocalizedText({ text }: { text: LocalizedTextValue }) {
   return (
     <>
       <span data-copy="en">{text.en}</span>

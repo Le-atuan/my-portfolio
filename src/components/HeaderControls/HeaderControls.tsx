@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { navigation } from "@/data/portfolio";
 import type { Locale } from "@/types/portfolio";
+import styles from "./HeaderControls.module.css";
 
 const LOCALE_KEY = "lat-portfolio-locale";
 const THEME_KEY = "lat-portfolio-theme";
@@ -30,12 +31,10 @@ export function HeaderControls() {
       setLocale(initialLocale);
       setTheme(initialTheme);
     }, 0);
-
     return () => window.clearTimeout(timeout);
   }, []);
 
-  function toggleLocale() {
-    const next = locale === "en" ? "vi" : "en";
+  function changeLocale(next: Locale) {
     setLocale(next);
     applyLocale(next);
     localStorage.setItem(LOCALE_KEY, next);
@@ -48,25 +47,25 @@ export function HeaderControls() {
     localStorage.setItem(THEME_KEY, next);
   }
 
-  function openMenu() {
-    dialogRef.current?.showModal();
-  }
   function closeMenu() {
     dialogRef.current?.close();
   }
 
   return (
-    <div className="header-controls">
+    <div className={styles.controls}>
+      <label className={styles.localeLabel}>
+        <span className="sr-only">Language</span>
+        <select
+          value={locale}
+          onChange={(event) => changeLocale(event.target.value as Locale)}
+          aria-label={locale === "en" ? "Language" : "Ngôn ngữ"}
+        >
+          <option value="en">en</option>
+          <option value="vi">vi</option>
+        </select>
+      </label>
       <button
-        className="control-button locale-control"
-        type="button"
-        onClick={toggleLocale}
-        aria-label={locale === "en" ? "Chuyển sang tiếng Việt" : "Switch to English"}
-      >
-        {locale === "en" ? "VI" : "EN"}
-      </button>
-      <button
-        className="control-button"
+        className={styles.controlButton}
         type="button"
         onClick={toggleTheme}
         aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
@@ -75,9 +74,9 @@ export function HeaderControls() {
       </button>
       <button
         ref={triggerRef}
-        className="control-button menu-trigger"
+        className={`${styles.controlButton} ${styles.menuTrigger}`}
         type="button"
-        onClick={openMenu}
+        onClick={() => dialogRef.current?.showModal()}
         aria-label="Open navigation"
         aria-haspopup="dialog"
       >
@@ -85,14 +84,12 @@ export function HeaderControls() {
       </button>
       <dialog
         ref={dialogRef}
-        className="mobile-dialog"
+        className={styles.dialog}
         onClose={() => triggerRef.current?.focus()}
-        onClick={(event) => {
-          if (event.target === dialogRef.current) closeMenu();
-        }}
+        onClick={(event) => event.target === dialogRef.current && closeMenu()}
       >
-        <div className="dialog-panel">
-          <div className="dialog-head">
+        <div className={styles.dialogPanel}>
+          <div className={styles.dialogHead}>
             <span>LE ANH TUAN / INDEX</span>
             <button type="button" onClick={closeMenu} aria-label="Close navigation">
               <CloseIcon />
